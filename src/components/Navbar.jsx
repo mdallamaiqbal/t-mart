@@ -11,7 +11,7 @@ const Navbar = () => {
 return (
 
 <nav className='py-14  relative'>
-  <div className='container flex justify-center gap-20 md:justify-between '>
+  <div className='container flex justify-center gap-8 md:gap-20 md:justify-between '>
     <Link to="/"><img src="/logo.png" alt="logo" /></Link>
     {/* =============Dekstop nav=============== */}
     <div className='hidden md:block'>
@@ -52,7 +52,7 @@ return (
      
     </div>
      {/* ==============Mobile nav end=============== */}
-    <div className='flex items-center text-xl gap-10 md:gap-5'>
+    <div className='flex items-center text-xl gap-5'>
       <Link>
       <FiUser />
       </Link>

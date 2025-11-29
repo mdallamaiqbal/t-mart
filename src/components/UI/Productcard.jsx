@@ -11,7 +11,7 @@ const Productcard = ({data}) => {
         </p>
       <div className='flex justify-center gap-2.5'>
     
-        <p className='text-price  text-base font-normal'><del>{data?.price + 50}</del></p>
+        <p className='text-price  text-base font-normal'><del>{data?.price + 100}</del></p>
         <p className='text-badge  text-base font-normal'>{data?.price}</p>
       </div>
       </Link>
