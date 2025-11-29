@@ -31,7 +31,7 @@ return (
       </ul>
     </div>
     {/* ===============Mobile nav=============== */}
-     <div className={`md:hidden fixed top-0 ${show ? "translate-x-0" : "translate-x-full" } transition right-0 w-1/4 h-screen pl-7 bg-background`}>
+     <div className={`md:hidden fixed top-0 ${show ? "translate-x-0" : "translate-x-full" } transition right-0 w-[45%]  pl-7 bg-background`}>
      <div className='py-[60px]'>
       <button onClick={()=> setShow(!show)}><FaBarcode className='text-2xl' /> </button>
       <ul className='flex flex-col items-start gap-10 font-medium text-xl text-secondary'>

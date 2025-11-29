@@ -18,7 +18,7 @@ const About = () => {
             <Link to="/contact"><button className='font-normal text-base text-product-title mt-8 mb-16 py-2 px-5 border border-price hover:bg-badge transition duration-300 hover:hover:border-transparent hover:text-white'>CONTACT US</button>
             </Link>
           </div>
-           <div className=' bg-[#f7f7f8] mb-10 p-20 max-w-[1000px] mx-auto'>
+           <div className=' bg-[#f7f7f8] mb-10 p-20 max-w-[1000px] sm:mx-auto'>
             <h3 className='  text-xl md:text-3xl text-product-title font-normal pb-6'>Why Choose Us?</h3>
             <div className='grid grid-cols-1 md:grid-cols-2  gap-10  lg:gap-5'>
               <div>
@@ -26,28 +26,28 @@ const About = () => {
                    <div className='text-xl md:text-2xl text-product-title font-normal'><FaRegHeart/></div>
                    <h4 className='text-xl md:text-2xl text-product-title font-normal'>Free Gift Box</h4>
                 </div>
-                <p className=' text-base text-secondary ml-10 w-[300px]'>Enjoy a Free Gift Box with Your Purchase</p>
+                <p className=' text-base text-secondary ml-10 sm:w-[300px]'>Enjoy a Free Gift Box with Your Purchase</p>
                </div>
               <div>
                 <div className='flex gap-4 items-center'>
                    <div className='text-xl md:text-2xl text-product-title font-normal'><RxUpdate /></div>
                    <h4 className='text-xl md:text-2xl text-product-title font-normal'>Money Back</h4>
                 </div>
-                <p className=' text-base text-secondary ml-10 w-[300px]'>Guaranteed Money Back If You’re Not Satisfied</p>
+                <p className=' text-base text-secondary ml-10 sm:w-[300px]'>Guaranteed Money Back If You’re Not Satisfied</p>
                </div>
               <div >
                 <div className='flex gap-4 items-center'>
                    <div className='text-xl md:text-2xl text-product-title font-normal'><TbTruckDelivery /></div>
                    <h4 className='text-xl md:text-2xl text-product-title font-normal'>Free Delivery</h4>
                 </div>
-                <p className=' text-base text-secondary ml-10 w-[300px]'>Shop Now And Avail Free Delivery Today</p>
+                <p className=' text-base text-secondary ml-10 sm:w-[300px]'>Shop Now And Avail Free Delivery Today</p>
                </div>
               <div  > 
                 <div className='flex gap-4 items-center'>
                    <div className='text-xl md:text-2xl text-product-title font-normal'><LuClock3  /></div>
                    <h4 className='text-xl md:text-2xl text-product-title font-normal'>Support 24/7</h4>
                 </div>
-                <p className=' text-base text-secondary ml-10 w-[300px]'>Reliable 24/7 Customer Support for Every Need</p>
+                <p className=' text-base text-secondary ml-10 sm:w-[300px]'>Reliable 24/7 Customer Support for Every Need</p>
                </div>
             </div>
            </div>
