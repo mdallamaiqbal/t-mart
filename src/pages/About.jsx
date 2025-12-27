@@ -15,7 +15,7 @@ const About = () => {
             <h3 className='font-normal text-xl md:text-3xl mb-8 text-primary'>Welcome To Tmart Store</h3>
             <p className='font-normal text-sm md:text-base max-w-[700px] leading-relaxed mx-auto text-price'>We are delighted to have you here. At Tmart, we are dedicated to providing high-quality products, great value, and a smooth shopping experience for every customer. Whether you’re looking for daily essentials or something special, we offer a wide variety of items to meet your needs. Thank you for choosing Tmart Store — we hope you enjoy your shopping with us!
             </p>
-            <Link to="/contact"><button className='font-normal text-base text-product-title mt-8 mb-16 py-2 px-5 border border-price hover:bg-badge transition duration-300 hover:hover:border-transparent hover:text-white'>CONTACT US</button>
+            <Link to="/contact"><button className='font-normal text-base text-product-title mt-8 mb-16 py-2 px-5 border border-price hover:bg-badge transition duration-300 hover:border-transparent hover:text-white'>CONTACT US</button>
             </Link>
           </div>
            <div className=' bg-[#f7f7f8] mb-10 p-20 max-w-[1000px] sm:mx-auto'>
@@ -69,8 +69,6 @@ const About = () => {
            <div className="relative w-[300px] h-[350px] overflow-hidden group">
                 <img src="/Shihab.JPG"  className="w-full h-full object-cover rounded-3xl" alt="Shihab" />
                 <div className="absolute bottom-0 l right-0 w-[85%] left-1/2  -translate-x-1/2 h-1/5 
-             
-            
              bg-gray-800 bg-opacity-80 flex items-center justify-center p-4 
              rounded-3xl transition-transform duration-500 transform translate-y-full group-hover:-translate-y-1/6 ">
             <h3 className="text-white text-xl font-semibold  mb-2 text-center">
