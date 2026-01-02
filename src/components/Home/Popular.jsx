@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Productcard from '../UI/Productcard'
 import axios from 'axios';
 import Skeleton from '../UI/Skeleton';
+import { Link } from 'react-router'
 
 const Popular = () => {
 const [products, setproducts] = useState([]);
@@ -31,17 +32,21 @@ return (
         <p className='text-center mx-w-[750px] m-auto pt-2 lg:pt-7 py-20 text-base font-normal text-secondary'>Lorem
             ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et
             dolore magna aliqua.</p>
-        <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row sm:justify-between'>
+        <div className='flex flex-col items-center gap-5 sm:gap-2 sm:flex-row justify-between'>
             <ul className='flex flex-wrap  gap-6 text-base text-normal text-secondary sm:pl-14'>
                 {
                 catagories.map((item)=>(
                 <li key={item}><button onClick={()=>{
                     setselectcatagories(item == "all" ? "" : item)
-                }} className={`capitalize cursor-pointer ${item == selectcatagories && "text-badge"} `}>{item}</button></li>
+                }} className={`capitalize cursor-pointer ${(item === "all" && selectcatagories === "")||
+           item === selectcatagories ? "text-badge": ""} `}>{item}</button></li>
                 ))
                 }
             </ul>
-            <button className='text-base text-normal text-secondary  text-start pr-14'>FILTER</button>
+            <button className='text-base text-normal  transition-all duration-300 ease-in-out  hover:text-badge text-secondary '>
+                <Link to="/shop">MORE SHOPPING</Link>
+            </button>
+    
         </div>
         {loading ?(
         <Skeleton />

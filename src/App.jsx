@@ -5,6 +5,8 @@ import Shop from "./pages/Shop"
 import About from "./pages/About"
 import ProductDetails from "./pages/ProductDetails"
 import Contact from "./pages/Contact"
+import Log from "./components/UI/Log"
+import Signup from "./components/UI/Signup"
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/shop/:id" element={<ProductDetails/> } />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/log" element={<Log/>}/>
+        <Route path="/signup" element={<Signup/> } />
       </Route>
      </Routes>
     </BrowserRouter>

@@ -7,7 +7,7 @@ import { TbTruckDelivery } from 'react-icons/tb'
 import { LuClock3 } from "react-icons/lu";
 const About = () => {
   return (
-    <div>
+    <div className='mt-7'>
        <Banner title="About Us" path="Shop page" />
 
        <div className='container'>

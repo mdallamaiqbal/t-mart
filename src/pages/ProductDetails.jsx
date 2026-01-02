@@ -7,18 +7,21 @@ import { FaArrowRight, FaGooglePlus } from 'react-icons/fa'
 import { MdEmail, MdLocationPin, MdPhoneInTalk } from 'react-icons/md'
 import { RiFacebookCircleLine } from 'react-icons/ri'
 import { TiSocialInstagram, TiSocialTwitterCircular } from 'react-icons/ti'
-import { useParams, Link } from 'react-router'
-
+import { useParams, Link, useNavigate } from 'react-router'
 import axios from 'axios';
 
 
 const ProductDetails = () => {
-let [Quantity, setQuantity]=useState(1);
+let [Quantity, setQuantity]=useState(0);
 const [productData, setProductData] = useState({});
 const [loading, setLoading]=useState(true);
 const [images, setimages]=useState([]);
-const params = useParams()
-
+const params = useParams();
+const navigate = useNavigate();
+const handleBuyNow = () => {
+  alert("🎉 Congratulations! You purchased the product.");
+  navigate('/')
+};
 
 useEffect(()=>{
   axios.get(`https://dummyjson.com/products/${params.id}`).then((res)=>{
@@ -72,17 +75,20 @@ return (
           </div>
         </div>
         <div className='flex gap-5'>
-          <h3>Quantity :</h3>
+          <h3 className='text-2xl'>Quantity :</h3>
           <div>
-            <button onClick={()=> setQuantity(--Quantity)}>-</button>
-            <span className='mx-4'>{Quantity}</span>
-            <button onClick={()=> setQuantity(++Quantity)}>+</button>
+            <button onClick={() => setQuantity(prev => prev - 1)} disabled={Quantity === 0}
+             className={`text-2xl ${Quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}>-</button>
+            <span className='mx-4 text-2xl'>{Quantity}</span>
+            <button className='text-2xl' onClick={() => setQuantity(prev => prev + 1)}>+</button>
           </div>
 
         </div>
 
         <div>
-          <button className='mt-8 py-3 px-10 text-sm font-normal  border-2 border-price'>Buy Now</button>
+          <button onClick={handleBuyNow} className='mt-8 py-3 px-10 text-sm font-normal hover:bg-badge hover:text-white duration-300 transition-all hover:border-none active:bg-badge active:text-white border-2 border-price'>
+            Buy Now
+          </button>
         </div>
 
         <div className='flex gap-5 text-xl items-center  pt-5 text-secondary'>

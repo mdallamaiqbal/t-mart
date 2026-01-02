@@ -10,32 +10,53 @@ const [catagories, setcatagories] = useState([
 "furniture",
 "womens-bags",
 "home-decoration",
-"kitchen-accessories"
+"kitchen-accessories",
+"smartphones",
+"laptops",
+"mobile-accessories"
 ])
-const [selectcatagories , setselectcatagories] = useState("")
+const [selectcatagories , setselectcatagories] = useState("");
+const [pagenation, setPagenation] = useState({
+  total: 0,
+  skip: 0,
+  limit:15
+})
 
-useEffect(()=>{
-setloading(true);
-axios.get(`https://dummyjson.com/products${selectcatagories && "/category/" + selectcatagories}?limit=35`).then
+useEffect(() => {
+  setloading(true);
+
+axios.get(`https://dummyjson.com/products${selectcatagories && "/category/" + selectcatagories}?limit=${pagenation.limit}&skip=${pagenation.skip}`).then
 ((res)=>{
 setproducts(res.data.products);
+setPagenation({
+   total: res.data.total,
+  skip: res.data.skip,
+  limit: res.data.limit
+})
 setloading(false);
 });
-},[selectcatagories])
+},[selectcatagories, pagenation.skip, pagenation.limit])
 return (
 <section className='py-32'>
   <div className='container'>
-    <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row sm:justify-between'>
+    <div className='flex flex-col items-center gap-5 sm:gap-2 sm:flex-row justify-between'>
       <ul className='flex flex-wrap  gap-6 text-base text-normal text-secondary sm:pl-14'>
         {
         catagories.map((item)=>(
         <li key={item}><button onClick={()=>{
-            setselectcatagories(item == "all" ? "" : item)
-            }} className={`capitalize cursor-pointer ${item == selectcatagories && "text-badge"} `}>{item}</button></li>
+            setselectcatagories(item == "all" ? "" : item);
+              setPagenation(prev => ({...prev,skip: 0,limit: 15}));
+            }} className={`capitalize cursor-pointer ${(item === "all" && selectcatagories === "")||
+           item === selectcatagories ? "text-badge": ""} `}>{item}</button></li>
         ))
         }
       </ul>
-      <button className='text-base text-normal text-secondary text-start pr-14'>FILTER</button>
+      <select onChange={(e)=> setPagenation((prev)=>({...prev,limit: Number(e.target.value), skip: 0}) ) } className=' text-base bg-[#f5f5f5] text-normal text-secondary text-start '>
+        <option value="15">Select</option>
+        <option disabled={pagenation.total < 25}  >25</option>
+        <option disabled={pagenation.total < 45} value="45">45</option>
+        <option disabled={pagenation.total < 65} value="65">65</option>
+      </select>
     </div>
     {loading ?(
     <Skeleton />
@@ -46,6 +67,12 @@ return (
       <Productcard key={item.id} data={item} />))}
     </div>
     )}
+
+    <div className='flex justify-center items-center space-x-2 mt-4'>
+      <button  disabled={pagenation.skip === 0} onClick={()=> setPagenation(prev => ({...prev,skip: Math.max(prev.skip - prev.limit, 0)}))} className='px-3 py-1 disabled:opacity-50 disabled:cursor-not-allowed rounded-md border text-gray-700 border-gray-400 hover:bg-gray-100 '>Prev</button>
+      <button  disabled={pagenation.skip + pagenation.limit >= pagenation.total} onClick={()=> setPagenation((prev)=>({...prev,skip:  Math.min(prev.skip + prev.limit, prev.total - prev.limit)}))} className='px-3 py-1 disabled:opacity-50 rounded-md border text-gray-700 border-gray-400 hover:bg-gray-100 '>
+      Next</button>
+    </div>
   </div>
 </section>
 )
